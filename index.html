@@ -1,133 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Sams Stuff</title>
+    <!-- Bootstrap core CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Material Design Bootstrap -->
+    <link
+      href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.5.9.min.css?ver=4.5.6"
+      rel="stylesheet"
+    />
+    <!-- Global styles -->
+    <link href="/css/global.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <!-- JQuery -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+  ></script>
+  <!-- MDBootstrap Datatables  -->
+  <script type="text/javascript" src="js/datatables.min.js"></script>
 
-<head>
-  <title>Sams Stuff</title>
-  <!-- Bootstrap core CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-4.5.9.min.css?ver=4.5.6" rel="stylesheet">
-  <!-- Global styles -->
-  <link href="/css/global.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-</head>
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!-- MDBootstrap Datatables  -->
-<script type="text/javascript" src="js/datatables.min.js"></script>
-
-<body>
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col">
-        <h1>Sams stuff</h1>
-      </div>
-      <!-- <div class="col">
+  <body>
+    <div class="container mt-3">
+      <!-- <div class="row">
+        <div class="col">
+          <h1>Sams stuff</h1>
+        </div>
+        <!-- <div class="col">
         <a href="https://status.roquitte.com/">
           <button type="button" class="btn btn-outline-primary waves-effect pull-right">
             <i class="fas fa-server"></i> Status
           </button>
         </a>
+      </div> 
       </div> -->
-    </div>
-    <div class="row">
-      <div class="col-md">
-        <div class="card mt-3">
-          <div class="header pt-3 pb-3 blue-gradient">
-            <div class="row d-flex justify-content-center">
-              <h3 class="white-text pt-3 font-weight-bold">Sandman</h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <p>Team 1306's Scouting System</p>
-              </div>
-              <div class="col">
-                <a href="https://sandman.roquitte.com/index">
-                  <button class="btn blue-gradient pull-right">Launch</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="card mt-3">
-          <div class="header pt-3 pb-3 blue-gradient">
-            <div class="row d-flex justify-content-center">
-              <h3 class="white-text pt-3 font-weight-bold">Part System</h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <p>Team 1306's Part and Inventory Management System</p>
-              </div>
-              <div class="col">
-                <button class="btn blue-gradient pull-right disabled">Under construction</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md">
-        <div class="card mt-3">
-          <div class="header pt-3 pb-3 blue-gradient">
-            <div class="row d-flex justify-content-center">
-              <h3 class="white-text pt-3 font-weight-bold">BadgerBOTS Agenda</h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <p>Team 1306's Agenda</p>
-              </div>
-              <div class="col">
-                <a href="https://agenda.roquitte.com">
-                  <button class="btn blue-gradient pull-right">Launch</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="card mt-3">
-          <div class="header pt-3 pb-3 blue-gradient">
-            <div class="row d-flex justify-content-center">
-              <h3 class="white-text pt-3 font-weight-bold">Music Downloader</h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="col">
-                <p>Youtube mp3 downloader</p>
-              </div>
-              <div class="col">
-                <a href="https://music.roquitte.com">
-                  <button class="btn blue-gradient pull-right">Launch</button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"></script>
-<!-- Toast -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+      <div class="row">
+        <div class="col-md">
 
+          <h1>Projects</h1>
+          <div class="card mt-3">
+            <div class="header pt-3 pb-3 blue-gradient">
+              <div class="row d-flex justify-content-center">
+                <h3 class="white-text pt-3 font-weight-bold">
+                  Music Downloader
+                </h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <p>Youtube mp3 downloader</p>
+                </div>
+                <div class="col">
+                  <a href="https://music.roquitte.com">
+                    <button class="btn blue-gradient pull-right">Launch</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3">
+            <div class="header pt-3 pb-3 blue-gradient">
+              <div class="row d-flex justify-content-center">
+                <h3 class="white-text pt-3 font-weight-bold">Sandman</h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <p>Team 1306's Scouting System</p>
+                </div>
+                <div class="col">
+                  <a href="https://sandman.roquitte.com/index">
+                    <button class="btn blue-gradient pull-right">Launch</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3">
+            <div class="header pt-3 pb-3 blue-gradient">
+              <div class="row d-flex justify-content-center">
+                <h3 class="white-text pt-3 font-weight-bold">
+                  BadgerBOTS Agenda
+                </h3>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <p>Team 1306's Agenda</p>
+                </div>
+                <div class="col">
+                  <a href="https://agenda.roquitte.com">
+                    <button class="btn blue-gradient pull-right">Launch</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md">
+
+          <div class="card testimonial-card">
+            <div class="card-up blue-gradient"></div>
+            <div class="avatar mx-auto white">
+              <img
+                src="./profilepic.jpg"
+                class="rounded-circle"
+                alt="woman avatar"
+              />
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">My Portfolio</h4>
+              <hr />
+              <a href="https://sam.roquitte.com">
+                <button class="btn btn-block btn-lg blue-gradient pull-right">
+                  Launch
+                </button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Bootstrap tooltips -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"
+  ></script>
+  <!-- Bootstrap core JavaScript -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
+  ></script>
+  <!-- MDB core JavaScript -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"
+  ></script>
+  <!-- Toast -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+  ></script>
 </html>
