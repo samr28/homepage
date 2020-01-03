@@ -13,7 +13,7 @@ noinstall() {
 printf "Will install to /var/www/html "
 
 while true; do
-    read -p "Do you want to update? " yn
+    read -p "Do you want to update? [y/n] " yn
     case $yn in
         [Yy]* ) install; break;;
         [Nn]* ) noinstall; break;;
