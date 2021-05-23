@@ -13,7 +13,7 @@ noinstall() {
   printf "Ok bye!\n"
 }
 
-printf "Will install to /var/www/html "
+printf "Will install to %s \n" $TARGETDIR
 
 while true; do
     read -p "Do you want to update? [y/n] " yn
