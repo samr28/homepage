@@ -1,8 +1,11 @@
 #!/bin/bash
 
+SRCFILE=index.html
+TARGETDIR=../roquitte.com
+
 install() {
   printf "Updating site\n"
-  cp index.html /var/www/html/index.html
+  cp $SRCFILE $TARGETDIR
   printf "Done!\n"
 }
 
