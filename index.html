@@ -1,163 +1,339 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Sams Stuff</title>
-    <!-- Bootstrap core CSS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sam's Stuff</title>
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        if (saved) {
+          document.documentElement.setAttribute("data-theme", saved);
+        } else if (
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..700&display=swap"
       rel="stylesheet"
     />
-    <!-- Material Design Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.css"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-      crossorigin="anonymous"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <style>
+      :root {
+        --bg: #faf2ea;
+        --bg-secondary: #fdfbf9;
+        --text: #4e4e57;
+        --title: #292524;
+        --card-bg: #fff;
+        --border: #f2f2f2;
+        --accent: #11abb0;
+        --accent-hover: #0e9499;
+        --shadow: 0px 2px 5px rgba(0, 0, 0, 0.03);
+        --shadow-hover: 0px 4px 12px rgba(0, 0, 0, 0.08);
+        --radius-sm: 5px;
+        --radius-md: 10px;
+        --transition: 300ms cubic-bezier(0.5, 2.5, 0.7, 0.7);
+        --font: "Open Sans", sans-serif;
+        --font-size: 17px;
+        --line-height: 1.9;
+      }
+
+      [data-theme="dark"] {
+        --bg: #15171a;
+        --bg-secondary: #1c1e21;
+        --text: #b8bcc2;
+        --title: #f0f0f0;
+        --card-bg: #22252a;
+        --border: #333740;
+        --shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+        --shadow-hover: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font);
+        font-size: var(--font-size);
+        line-height: var(--line-height);
+        color: var(--text);
+        background-color: var(--bg);
+        transition: background-color 0.3s, color 0.3s;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        color: var(--accent-hover);
+        text-decoration: underline;
+      }
+
+      .container {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 0;
+      }
+
+      .header h1 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--title);
+      }
+
+      .toggle-btn {
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 8px 10px;
+        cursor: pointer;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s, color 0.2s;
+        line-height: 1;
+      }
+
+      .toggle-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .toggle-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Profile */
+      .profile {
+        text-align: center;
+        padding: 32px 0 40px;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent);
+      }
+
+      .profile h2 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--title);
+        margin-top: 16px;
+      }
+
+      .profile p {
+        margin-top: 4px;
+        font-size: 0.95rem;
+      }
+
+      /* sites */
+      .sites h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--title);
+        margin-bottom: 20px;
+      }
+
+      .sites-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        transition: box-shadow 0.3s, transform var(--transition),
+          background-color 0.3s, border-color 0.3s;
+      }
+
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-2px);
+      }
+
+      .card h3 {
+        color: var(--title);
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+        flex: 1;
+      }
+
+      .card .card-link {
+        display: block;
+        text-align: center;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 10px 16px;
+        background: var(--accent);
+        color: #fff;
+        border-radius: var(--radius-sm);
+        transition: background 0.2s;
+      }
+
+      .card .card-link:hover {
+        background: var(--accent-hover);
+        text-decoration: none;
+        color: #fff;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 48px 0 24px;
+        font-size: 0.85rem;
+        color: var(--text);
+        opacity: 0.6;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        .sites-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .profile img {
+          width: 100px;
+          height: 100px;
+        }
+
+        .profile {
+          padding: 24px 0 32px;
+        }
+      }
+    </style>
   </head>
-  <!-- JQuery -->
-  <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
-  ></script>
   <body>
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col-md">
-          <h1>Projects</h1>
-          <div class="card mt-3">
-            <div class="header pt-3 pb-3 blue-gradient">
-              <div class="row d-flex justify-content-center">
-                <h3 class="white-text pt-3 font-weight-bold">Sam's Plants</h3>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-8">
-                  <p>Plant log</p>
-                </div>
-                <div class="col-4">
-                  <a href="https://plants.samr.dev/">
-                    <button class="btn btn-block blue-gradient pull-right">View</button>
-                  </a>
-                </div>
-              </div>
-            </div>
+    <div class="container">
+      <header class="header">
+        <h1>Sam's Stuff</h1>
+        <button class="toggle-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <!-- Icon set by JS -->
+        </button>
+      </header>
+
+      <section class="profile">
+        <img
+          src="https://sam.roquitte.com/images/profilepic.jpg"
+          alt="Sam Roquitte"
+        />
+        <h2>Sam Roquitte</h2>
+        <p>Resume: <a href="https://sam.roquitte.com">sam.roquitte.com</a></p>
+      </section>
+
+      <section class="sites">
+        <h2>Sites</h2>
+        <div class="sites-grid">
+          <div class="card">
+            <h3>Samr.dev</h3>
+            <p>Catchall personal blog including project writeups and technical stuff</p>
+            <a class="card-link" href="https://samr.dev/">View</a>
           </div>
-          <div class="card mt-3">
-            <div class="header pt-3 pb-3 blue-gradient">
-              <div class="row d-flex justify-content-center">
-                <h3 class="white-text pt-3 font-weight-bold">esk8.us</h3>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-8">
-                  <p>Electric skateboarding content and reviews</p>
-                </div>
-                <div class="col-4">
-                  <a href="https://esk8.us/">
-                    <button class="btn btn-block blue-gradient pull-right">View</button>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div class="card">
+            <h3>Sam's Plants</h3>
+            <p>Notes and documenting my plants</p>
+            <a class="card-link" href="https://plants.samr.dev/">View</a>
           </div>
-          <div class="card mt-3">
-            <div class="header pt-3 pb-3 blue-gradient">
-              <div class="row d-flex justify-content-center">
-                <h3 class="white-text pt-3 font-weight-bold">
-                  Strawberry Shake Club
-                </h3>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-8">
-                  <p>My rating of the best strawberry shakes</p>
-                </div>
-                <div class="col-4">
-                  <a href="https://strawberryshake.club/">
-                    <button class="btn btn-block blue-gradient pull-right">View</button>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div class="card">
+            <h3>esk8.us</h3>
+            <p>Electric skateboarding content and reviews</p>
+            <a class="card-link" href="https://esk8.us/">View</a>
           </div>
-          <div class="card mt-3">
-            <div class="header pt-3 pb-3 blue-gradient">
-              <div class="row d-flex justify-content-center">
-                <h3 class="white-text pt-3 font-weight-bold">
-                  Past/complete projects
-                </h3>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-8">
-                  <p>My portfolio of projects.</p>
-                </div>
-                <div class="col-4">
-                  <a href="https://sam.roquitte.com/#portfolio">
-                    <button class="btn btn-block blue-gradient pull-right">View</button>
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div class="card">
+            <h3>Strawberry Shake Club</h3>
+            <p>My rating of the best strawberry shakes</p>
+            <a class="card-link" href="https://strawberryshake.club/">View</a>
           </div>
         </div>
-        <div class="col-md">
-          <div class="card testimonial-card">
-            <div class="card-up blue-gradient"></div>
-            <div class="avatar mx-auto white">
-              <img
-                style="width: 50%; margin-right: auto; margin-left: auto; display:block;"
-                src="https://sam.roquitte.com/images/profilepic.jpg"
-                class="rounded-circle"
-                alt="Profile picture"
-              />
-            </div>
-            <div class="card-body">
-              <h4 class="card-title">My Portfolio</h4>
-              <hr />
-              <a href="https://sam.roquitte.com">
-                <button class="btn btn-block btn-lg blue-gradient pull-right">
-                  Launch
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      </section>
+
+      <footer class="footer">
+        &copy; Sam Roquitte
+      </footer>
     </div>
+
+    <script>
+      (function () {
+        var toggle = document.getElementById("theme-toggle");
+
+        var sunIcon =
+          '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>';
+
+        var moonIcon =
+          '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"/></svg>';
+
+        function getTheme() {
+          return document.documentElement.getAttribute("data-theme") || "light";
+        }
+
+        function updateIcon() {
+          toggle.innerHTML = getTheme() === "dark" ? sunIcon : moonIcon;
+        }
+
+        updateIcon();
+
+        toggle.addEventListener("click", function () {
+          var next = getTheme() === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+          updateIcon();
+        });
+
+        // Listen for system preference changes (only when no explicit choice)
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", function (e) {
+            if (!localStorage.getItem("theme")) {
+              var theme = e.matches ? "dark" : "light";
+              document.documentElement.setAttribute("data-theme", theme);
+              updateIcon();
+            }
+          });
+      })();
+    </script>
   </body>
-  <!-- Bootstrap tooltips -->
-  <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"
-  ></script>
-  <!-- Bootstrap core JavaScript -->
-  <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
-  ></script>
-  <!-- MDB core JavaScript -->
-  <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/js/mdb.min.js"
-  ></script>
-  <!-- Toast -->
-  <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-  ></script>
 </html>
